@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    footer {
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculadora</h1>
+
+  <label for="inputValor">Digite o valor (em Reais): </label>
+  <input type="number" id="inputValor" step="0.01" placeholder="Digite o valor">
+
+  <button onclick="calcular()">Calcular</button>
+
+  <p id="resultado">Resultado: </p>
+
+  <footer>
+    <p>Autor: @_jornada.digital</p>
+  </footer>
+
+  <script>
+    function calcular() {
+      // Obter o valor digitado pelo usuário
+      const valorInicial = parseFloat(document.getElementById("inputValor").value);
+
+      // Calcular 8,99% do valor inicial
+      const porcentagem = 8.99 / 100;
+      const resultadoPorcentagem = valorInicial * porcentagem;
+
+      // Subtrair o resultado da porcentagem do valor inicial
+      const valorIntermediario = valorInicial - resultadoPorcentagem;
+
+      // Subtrair 2,49 Reais do valor intermediário
+      const valorFinal = valorIntermediario - 2.49;
+
+      // Exibir o resultado
+      document.getElementById("resultado").textContent = "Resultado: " + valorFinal.toFixed(2) + " Reais";
+    }
+  </script>
+
+</body>
+</html>
